@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricket Mania</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body {
+  background: url('https://images.unsplash.com/photo-1601584118193-8b17c6c7e1c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  height: 100%;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+}
+header { position: relative; z-index: 2; text-align: center; padding: 40px 20px; }
+header h1 {
+    font-size: 3rem; font-weight: bold;
+    background: linear-gradient(45deg, #00ff88, #00aaff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow { from { text-shadow: 0 0 10px #00ff88; } to { text-shadow: 0 0 20px #00aaff; } }
+.hero { position: relative; z-index: 2; text-align: center; margin-top: 60px; }
+.hero p { font-size: 1.3rem; margin-bottom: 20px; }
+.hero button {
+  padding: 12px 24px; font-size: 1rem; font-weight: bold;
+  border: none; border-radius: 30px;
+  background: linear-gradient(90deg, #00ff88, #00aaff);
+  color: #fff; cursor: pointer; transition: 0.3s;
+}
+.hero button:hover { box-shadow: 0 0 20px #00ff88, 0 0 40px #00aaff; transform: scale(1.05); }
+section.cards { position: relative; z-index: 2; display: flex; justify-content: center; flex-wrap: wrap; margin-top: 50px; gap: 20px; }
+.card {
+  width: 280px; padding: 20px; border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+  color: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.3); text-align: center; transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-10px); }
+footer { position: relative; z-index: 2; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem; color: #bbb; }
+/* Crowd Animation */
+.crowd { position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; display: flex; justify-content: space-around; align-items: flex-end; z-index: 1; }
+.crowd div { width: 10px; height: 20px; background: #111; border-radius: 3px; animation: cheer 1s infinite alternate; }
+.crowd div:nth-child(odd) { animation-duration: 1.2s; }
+.crowd div:nth-child(3n) { animation-duration: 0.9s; }
+@keyframes cheer { from { transform: scaleY(1); } to { transform: scaleY(1.5); } }
+/* Cricket Ball Animation */
+.cricket-ball { position: absolute; width: 30px; height: 30px; background: red; border-radius: 50%; z-index: 3; top: 50%; left: -40px; animation: ballMove 5s linear infinite; }
+@keyframes ballMove { 0% { transform: translate(0, -50%); } 50% { transform: translate(100vw, -60%); } 100% { transform: translate(0, -50%); } }
+/* Fixtures, News, Live Scores */
+section.updates { position: relative; z-index: 2; margin: 60px 20px; display: flex; flex-direction: column; gap: 40px; text-align: center; }
+.update-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.update-card { width: 300px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: transform 0.3s; }
+.update-card:hover { transform: translateY(-10px); }
+.update-card h3 { margin-bottom: 10px; color: #00ff88; }
+.update-card p { font-size: 14px; color: #e0e0e0; }
+</style>
+</head>
+<body>
+<header>
+<h1>🏏 Cricket Manish</h1>
+<p>Feel the thrill of cricket like never before!</p>
+</header>
+<section class="hero">
+<p>Get live scores, latest news, and upcoming fixtures all in one place.</p>
+<button>Explore Now</button>
+</section>
+<section class="cards">
+<div class="card"><h2>Live Scores</h2><p>Stay updated with real-time match scores.</p></div>
+<div class="card"><h2>Latest News</h2><p>Catch up with trending cricket stories worldwide.</p></div>
+<div class="card"><h2>Upcoming Fixtures</h2><p>Never miss a match with our detailed schedule.</p></div>
+</section>
+<section class="updates">
+<h2>Upcoming Fixtures</h2>
+<div class="update-section">
+<div class="update-card"><h3>India 🇮🇳 vs Australia 🇦🇺</h3><p>Date: 10 Oct 2025 | Venue: Eden Gardens</p></div>
+<div class="update-card"><h3>England 🇬🇧 vs Pakistan 🇵🇰</h3><p>Date: 12 Oct 2025 | Venue: Lord's</p></div>
+<div class="update-card"><h3>South Africa 🇿🇦 vs New Zealand 🇳🇿</h3><p>Date: 15 Oct 2025 | Venue: Wanderers Stadium</p></div>
+</div>
+<h2>Latest News</h2>
+<div class="update-section">
+<div class="update-card"><h3>World Cup 2025 Updates</h3><p>Teams are gearing up for the biggest cricketing event of the year.</p></div>
+<div class="update-card"><h3>Player of the Month</h3><p>Rohit Sharma shines with a record-breaking century!</p></div>
+<div class="update-card"><h3>Injury Updates</h3><p>Star bowler from England out due to hamstring injury.</p></div>
+</div>
+<h2>Live Scores</h2>
+<div class="update-section">
+<div class="update-card"><h3>IND vs AUS</h3><p>IND: 250/3 | AUS: 0/0</p></div>
+<div class="update-card"><h3>ENG vs PAK</h3><p>ENG: 180/5 | PAK: 0/0</p></div>
+</div>
+</section>
+<div class="crowd"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<div class="cricket-ball"></div>
+<footer>
+<p>&copy; 2025 Cricket Manish. All rights reserved.</p>
+</footer>
+</body>
+</html>
